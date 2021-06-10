@@ -1,3 +1,10 @@
+#这个工具包很好用！
+  1 .用pip方法下载的faerun并不是最新版本的faerun，至少目前到2021年6月10日都是这样的。
+  2 .如果你用Pip方法下载的faerun 而且template还用了 reaction-smile 你就会惊奇的发现 我靠！出的图在网页中向右偏移了5个px 
+这是因为 他在pip上传的版本中 faerun-python/faerun/template_reaction_smiles.j2 这个文件里面 有一处多回了一个“>”号 这在H5中会直接在body中添加字符 直接删除多余的大于号就可以了，当然你find的方法是 搜索两个>>号 。
+（删除之后要重新生成，或者你直接去生成的js/h5中找）
+  3 .reaction-smiles 在旧版本中  生成的化学反应图片中 是没有 加号连接的 作者在最新版的j2文件中加了这个功能如果你想用直接就把faerun-python/faerun/template_reaction_smiles.j2 文件下载下来然后替换你环境中faerun对应的文件，然后！！ 作者用了SMILE_DRAWER的
+smilesDrawer/dist/smiles-drawer.js  把这个也下载下来 放到生成的h5+js同级文件下就可以了。这个js脚本也是这个团队写的，很牛逼。
 # Faerun (Python)
 
 Faerun (Python) is based on the [Lore.js](https://github.com/reymond-group/lore) 3D WebGL engine for interactive big data rendering and the [FUn](http://doc.gdb.tools/fun/) project. It facilitates the creation of interactive (2D and 3D) HTML plots of chemical data (or chemical spaces). Molecular structures are rendered using [SmilesDrawer](https://github.com/reymond-group/smilesDrawer).
